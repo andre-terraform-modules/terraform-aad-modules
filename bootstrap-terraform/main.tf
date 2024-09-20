@@ -11,8 +11,8 @@ resource "azuread_service_principal" "terraform_sp" {
 }
 
 # Create a Client Secret for the Terraform Service Principal
-resource "azuread_service_principal_password" "example" {
-  service_principal_id = azuread_service_principal.example.object_id
+resource "azuread_service_principal_password" "terraform_sp_password" {
+  service_principal_id = azuread_service_principal.terraform_sp.object_id
 }
 
 # Assign Owner Role to the TF Service Principal at the Subscription level
