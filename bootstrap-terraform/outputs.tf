@@ -11,6 +11,6 @@ output "subscription_id" {
 }
 
 output "client_secret" {
-  value     = azuread_application_password.terraform_sp_password.value
+  value     = azuread_service_principal_password.terraform_sp_password.value
   sensitive = true
 }
