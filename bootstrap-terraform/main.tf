@@ -1,6 +1,6 @@
-# Create an Azure AD Application
+# Create an Azure AD terraform dedicated app
 resource "azuread_application" "terraform_app" {
-  display_name = "terraform-sp"
+  display_name = var.terraform_sp_name
   logo_image   = filebase64("./main_tf.png")
   owners       = var.aad_owners
 }
