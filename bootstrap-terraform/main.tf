@@ -15,9 +15,8 @@ resource "azuread_service_principal_password" "terraform_sp_password" {
   service_principal_id = azuread_service_principal.terraform_sp.object_id
 }
 
-# Assign Owner Role to the TF Service Principal at the Subscription level
-resource "azurerm_role_assignment" "terraform_sp_role" {
-  scope                = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
-  role_definition_name = "Owner"
-  principal_id         = azuread_service_principal.terraform_sp.object_id
+# Grant TF service principal AAD Global Admin rights
+resource "azuread_directory_role_assignment" "global_administrator" {
+  role_id             = "62e90394-69f5-4237-9190-012177145e10" # Global Administrator templateID
+  principal_object_id = azuread_service_principal.terraform_sp.object_id
 }
