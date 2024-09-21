@@ -1,4 +1,4 @@
 variable "groups" {
   description = "AAD groups"
-  type        = map()
+  type        = map(object)
 }
