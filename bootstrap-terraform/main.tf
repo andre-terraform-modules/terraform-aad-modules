@@ -6,6 +6,7 @@ resource "azuread_application" "terraform_app" {
 }
 
 # Create a Service Principal for the Terraform Azure AD Application
+# TODO: import TF sp
 resource "azuread_service_principal" "terraform_sp" {
   client_id = azuread_application.terraform_app.client_id
 }
